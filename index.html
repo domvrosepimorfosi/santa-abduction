@@ -34,7 +34,6 @@
             flex-direction: column;
         }
 
-        /* --- TYPOGRAPHY --- */
         h1, h2 {
             text-align: center;
             color: #f1c40f;
@@ -44,164 +43,98 @@
         }
         p { font-size: 1.1rem; margin: 5px 0; line-height: 1.4; }
 
-        /* --- LAYOUT UTILITIES --- */
-        .game-section {
-            display: none;
-            width: 100%;
-            height: 100%;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        #section-home { display: flex; }
-
-        /* SPLIT LAYOUT */
-        .split-layout {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            gap: 20px;
-        }
-
-        .split-left {
-            flex: 3;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            max-width: 65%;
-        }
-
-        .split-right {
-            flex: 2;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100%;
-            max-width: 35%;
-        }
-
-        /* --- IMAGES --- */
-        .dashboard-wrapper {
-            position: relative;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-
-        .dashboard-bg-image {
-            width: 100%;
-            height: auto;
-            max-height: 85vh;
-            object-fit: contain;
-            border-radius: 10px;
-            border: 4px solid #2c3e50;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        /* Standard scene images */
-        .scene-image {
-            max-height: 75vh;
-            max-width: 100%;
-            width: auto;
-            border-radius: 8px;
-            border: 3px solid #2c3e50;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            margin-bottom: 10px;
-        }
-
-        /* Images inside Split Layouts */
-        .split-layout .scene-image {
-            max-height: 85vh;
-            width: 100%;
-            object-fit: contain;
-            margin-bottom: 0;
-        }
-
-        /* --- OVERLAYS --- */
-        .logo-overlay {
+        /* --- TIMER --- */
+        #mission-timer {
             position: absolute;
             top: 15px;
-            right: 20px;
-            width: 80px;
-            z-index: 50;
-            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
-            transition: opacity 0.3s ease;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #000;
+            color: #e74c3c;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.5rem;
+            padding: 5px 15px;
+            border: 2px solid #c0392b;
+            border-radius: 5px;
+            z-index: 100;
+            font-weight: bold;
         }
 
-        .image-btn-hotspot {
-            position: absolute;
-            cursor: pointer;
-            z-index: 10;
-        }
-        .image-btn-hotspot:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(255,255,255,0.3);
-        }
+        /* --- LAYOUT UTILITIES --- */
+        .game-section { display: none; width: 100%; height: 100%; flex-direction: column; justify-content: center; align-items: center; }
+        #section-home { display: flex; }
+
+        .split-layout { display: flex; flex-direction: row; align-items: center; justify-content: center; width: 100%; height: 100%; gap: 20px; }
+        .split-left { flex: 3; display: flex; justify-content: center; align-items: center; height: 100%; max-width: 65%; }
+        .split-right { flex: 2; display: flex; flex-direction: column; justify-content: center; height: 100%; max-width: 35%; }
+
+        /* --- IMAGES --- */
+        .dashboard-wrapper { position: relative; width: 100%; display: flex; justify-content: center; }
+        .dashboard-bg-image { width: 100%; height: auto; max-height: 85vh; object-fit: contain; border-radius: 10px; border: 4px solid #2c3e50; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .scene-image { max-height: 75vh; max-width: 100%; width: auto; border-radius: 8px; border: 3px solid #2c3e50; box-shadow: 0 5px 15px rgba(0,0,0,0.3); margin-bottom: 10px; }
+        .split-layout .scene-image { max-height: 85vh; width: 100%; object-fit: contain; margin-bottom: 0; }
+
+        /* --- OVERLAYS --- */
+        .logo-overlay { position: absolute; top: 15px; right: 20px; width: 80px; z-index: 50; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5)); transition: opacity 0.3s ease; }
+        .image-btn-hotspot { position: absolute; cursor: pointer; z-index: 10; }
+        .image-btn-hotspot:hover { background-color: rgba(255, 255, 255, 0.2); border-radius: 15px; box-shadow: 0 0 10px rgba(255,255,255,0.3); }
+        
+        /* Updated Hotspot Positions for 4 Buttons (Mental grid since image is 3 buttons)
+           We will reuse the 3 buttons but map the flow differently */
         #btn-spot-suspects { top: 42%; left: 12%; width: 21%; height: 30%; }
         #btn-spot-clues { top: 42%; left: 39.5%; width: 21%; height: 30%; }
         #btn-spot-solve { top: 42%; left: 67%; width: 21%; height: 30%; }
 
-
-        /* --- CARDS & BOXES --- */
-        .briefing-box {
-            background-color: rgba(0, 0, 0, 0.4);
-            border-left: 6px solid #f1c40f;
-            padding: 20px;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            color: #fff;
-        }
-
-        /* Used for right-column content in split view */
-        .profiles-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            width: 100%;
-            overflow-y: auto;
-            max-height: 70vh;
-            padding-right: 5px;
-        }
-
-        .profile-card {
-            background-color: #ecf0f1;
-            color: #2c3e50;
-            padding: 12px;
-            border-radius: 10px;
-            box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
-            flex: 1;
-            text-align: center;
-            font-size: 0.95rem;
-        }
-        .profile-card h3 { color: #c0392b; font-size: 1.1rem; margin-top: 0; margin-bottom: 5px;}
-        .profile-card p { margin: 3px 0; }
+        /* --- CONTENT CONTAINERS --- */
+        .briefing-box { background-color: rgba(0, 0, 0, 0.4); border-left: 6px solid #f1c40f; padding: 20px; border-radius: 8px; font-size: 1.1rem; color: #fff; }
+        .profiles-row { display: flex; justify-content: center; gap: 15px; width: 100%; margin-bottom: 15px; }
+        .profiles-stack { display: flex; flex-direction: column; gap: 10px; width: 100%; overflow-y: auto; max-height: 70vh; padding-right: 5px; }
         
-        /* --- VOCAB QUIZ --- */
-        #quiz-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            width: 100%;
-            overflow-y: auto;
-            max-height: 65vh;
-            padding: 10px;
-        }
-        .quiz-card {
-            background-color: #ecf0f1;
-            color: #2c3e50;
-            padding: 10px;
+        .profile-card { background-color: #ecf0f1; color: #2c3e50; padding: 12px; border-radius: 10px; box-shadow: 3px 3px 8px rgba(0,0,0,0.2); flex: 1; text-align: center; font-size: 0.95rem; }
+        .profile-card h3 { color: #c0392b; font-size: 1.1rem; margin-top: 0; margin-bottom: 5px;}
+
+        /* --- DECRYPTOR --- */
+        .scramble-area { background: #34495e; padding: 10px; border-radius: 5px; margin-top: 5px; }
+        .word-bank { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; margin-bottom: 5px; }
+        .scramble-word { background: #f1c40f; color: #2c3e50; padding: 5px 10px; border-radius: 3px; cursor: pointer; font-size: 0.9rem; font-weight: bold; }
+        .scramble-word:hover { transform: scale(1.1); }
+        .answer-box { min-height: 30px; background: #fff; border: 2px dashed #95a5a6; padding: 5px; color: #2c3e50; font-weight: bold; display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
+        .decrypted-text { color: #27ae60; font-weight: bold; font-style: italic; }
+
+        /* --- INTERROGATION ROOM STYLES --- */
+        .witness-card {
+            background-color: #2980b9;
+            color: white;
+            padding: 15px;
+            margin: 10px;
             border-radius: 10px;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-            flex: 1 1 200px;
-            max-width: 300px;
-            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 4px solid transparent;
         }
+        .witness-card:hover { transform: scale(1.02); }
+        .witness-card.selected { border-color: #f1c40f; background-color: #3498db; }
+        .witness-card.correct { border-color: #2ecc71; background-color: #27ae60; }
+        .witness-card.wrong { border-color: #c0392b; background-color: #c0392b; opacity: 0.5; }
+        .elf-avatar { font-size: 2rem; float: left; margin-right: 15px; }
+
+        /* --- BUTTONS --- */
+        .nav-container { margin-top: auto; margin-bottom: 10px; display: flex; gap: 15px; justify-content: center; width: 100%; }
+        .btn { padding: 10px 25px; font-size: 1.1rem; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; transition: all 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        .btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+        .btn-green { background-color: #2ecc71; color: white; }
+        .btn-red { background-color: #e74c3c; color: white; }
+        .btn-blue { background-color: #3498db; color: white; }
+        .btn-back { background-color: #95a5a6; color: white; }
+        .btn-disabled { background-color: #7f8c8d; cursor: not-allowed; opacity: 0.7; }
+
+        .solve-options { display: flex; gap: 20px; justify-content: center; width: 100%; margin-top: 20px;}
+        .solve-btn { padding: 20px; background: #ecf0f1; color: #2c3e50; border: 4px solid #c0392b; border-radius: 12px; width: 180px; cursor: pointer; text-align: center; transition: all 0.2s; }
+        .solve-btn:hover { background: #f1c40f; transform: scale(1.05); }
+
+        /* --- QUIZ GRID --- */
+        #quiz-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; width: 100%; overflow-y: auto; max-height: 65vh; padding: 10px; }
+        .quiz-card { background-color: #ecf0f1; color: #2c3e50; padding: 10px; border-radius: 10px; box-shadow: 2px 2px 5px rgba(0,0,0,0.2); flex: 1 1 200px; max-width: 300px; text-align: center; }
         .quiz-word { font-size: 1.2rem; font-weight: bold; color: #c0392b; text-transform: uppercase; margin-bottom: 5px;}
         .quiz-options { display: flex; flex-direction: column; gap: 5px; }
         .quiz-btn { padding: 8px; border: 2px solid #34495e; background: white; border-radius: 5px; cursor: pointer; font-weight: bold;}
@@ -209,62 +142,13 @@
         .quiz-btn.correct { background: #2ecc71; color: white; border-color: #27ae60; }
         .quiz-btn.wrong { background: #e74c3c; color: white; border-color: #c0392b; opacity: 0.6; }
 
-        /* --- BUTTONS --- */
-        .nav-container {
-            margin-top: auto;
-            margin-bottom: 10px;
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            width: 100%;
-        }
-        .btn {
-            padding: 10px 25px;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.2s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-        }
-        .btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
-        .btn:active { transform: translateY(1px); }
-        .btn-green { background-color: #2ecc71; color: white; }
-        .btn-red { background-color: #e74c3c; color: white; }
-        .btn-blue { background-color: #3498db; color: white; }
-        .btn-back { background-color: #95a5a6; color: white; }
-
-        .solve-options { display: flex; gap: 20px; justify-content: center; width: 100%; margin-top: 20px;}
-        .solve-btn {
-            padding: 20px;
-            background: #ecf0f1;
-            color: #2c3e50;
-            border: 4px solid #c0392b;
-            border-radius: 12px;
-            width: 180px;
-            cursor: pointer;
-            text-align: center;
-            transition: all 0.2s;
-        }
-        .solve-btn:hover { background: #f1c40f; transform: scale(1.05); }
-
-        /* Footer */
-        .footer {
-            margin-top: auto;
-            padding-top: 10px;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            width: 100%;
-            text-align: center;
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.6);
-        }
-
+        .footer { margin-top: auto; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.2); width: 100%; text-align: center; font-size: 0.8rem; color: rgba(255,255,255,0.6); }
     </style>
 </head>
 <body onload="initGame()">
 
 <div id="smartboard-container">
+    <div id="mission-timer">15:00</div>
     <img id="app-logo" src="logo.png" alt="School Logo" class="logo-overlay">
 
     <div id="section-home" class="game-section">
@@ -274,15 +158,15 @@
                     <img src="image_0.png" alt="Main Dashboard UI" class="dashboard-bg-image">
                     <a id="btn-spot-suspects" class="image-btn-hotspot" onclick="showSection('section-suspects')" title="See Suspects"></a>
                     <a id="btn-spot-clues" class="image-btn-hotspot" onclick="showSection('section-clues-wide')" title="See Clues"></a>
-                    <a id="btn-spot-solve" class="image-btn-hotspot" onclick="showSection('section-solve')" title="Solve Case"></a>
+                    <a id="btn-spot-solve" class="image-btn-hotspot" onclick="alert('Access Denied: You must interview witnesses first!');" title="Locked"></a>
                 </div>
             </div>
             <div class="split-right">
                 <div class="briefing-box">
                     <h2 style="margin-top: 0;">🎅 MISSION BRIEFING</h2>
                     <p>Halloween is over, but the <strong>Leftover Spirits</strong> refused to go home!</p>
-                    <p><strong>Santa is missing</strong> and his cookies are gone.</p>
-                    <p style="margin-top: 15px; color: #f1c40f;">👉 Tap the dashboard buttons to investigate!</p>
+                    <p><strong>Santa is missing</strong>. One of the spirits took him.</p>
+                    <p><strong>New Protocol:</strong> You must check the Scene, Train vocabulary, Decrypt clues, and <strong>Interrogate Witnesses</strong> before solving.</p>
                 </div>
             </div>
         </div>
@@ -301,17 +185,17 @@
                     <div class="profile-card">
                         <h3>The Witch</h3>
                         <p><strong>Looks:</strong> Green skin. Messy.</p>
-                        <p><strong>Habits:</strong> Cooks big pots of soup. Strong.</p>
+                        <p><strong>Habits:</strong> Cooks big pots of soup.</p>
                     </div>
                     <div class="profile-card">
                         <h3>The Skeleton</h3>
-                        <p><strong>Looks:</strong> Only bones. Very thin.</p>
-                        <p><strong>Habits:</strong> Very tidy. Hates liquids.</p>
+                        <p><strong>Looks:</strong> Only bones.</p>
+                        <p><strong>Habits:</strong> Tidy. Hates liquids.</p>
                     </div>
                     <div class="profile-card">
                         <h3>The Ghost</h3>
-                        <p><strong>Looks:</strong> Transparent. Pale.</p>
-                        <p><strong>Habits:</strong> Floats. Hates bright lights.</p>
+                        <p><strong>Looks:</strong> Transparent.</p>
+                        <p><strong>Habits:</strong> Floats. Hates lights.</p>
                     </div>
                 </div>
                 <div class="nav-container" style="margin-top: 15px;">
@@ -331,7 +215,7 @@
         
         <div class="nav-container">
             <button class="btn btn-back" onclick="showSection('section-home')">⬅ Dashboard</button>
-            <button class="btn btn-blue" onclick="showSection('section-vocab')">Analyze Evidence 🧠</button>
+            <button class="btn btn-blue" onclick="showSection('section-vocab')">Start Training 🧠</button>
         </div>
         <div class="footer">Created by Panagiotis Domvros, English and Drama Teacher, All Rights Reserved</div>
     </div>
@@ -343,9 +227,9 @@
             </div>
         <div class="nav-container">
              <button class="btn btn-back" onclick="showSection('section-clues-wide')">⬅ Back</button>
-             <button class="btn btn-green" onclick="showSection('section-clues-close')">Go to Lab ➡</button>
+             <button id="btn-go-lab" class="btn btn-disabled" disabled onclick="showSection('section-clues-close')">🔒 Go to Lab</button>
         </div>
-        <div class="footer">🎄✍ Created by Panagiotis Domvros, English and Drama Teacher, All Rights Reserved ✍🎅</div>
+        <div class="footer">Created by Panagiotis Domvros, English and Drama Teacher, All Rights Reserved</div>
     </div>
 
 
@@ -355,27 +239,24 @@
                 <img id="img-evidence" src="clues_witch.png" alt="Evidence Scanning" class="scene-image">
             </div>
             <div class="split-right">
-                <h2 style="margin-bottom: 10px;">EVIDENCE LOG</h2>
-                <div class="profiles-stack">
+                <h2 style="margin-bottom: 10px;">DECRYPT EVIDENCE</h2>
+                <div class="profiles-stack" id="clues-stack">
                     <div class="profile-card">
                         <h3 id="clueA-title">Clue A</h3>
-                        <p id="clueA-text">...</p>
-                        <p><em id="clueA-deduction">...</em></p>
+                        <div class="scramble-area" id="scramble-A"></div>
                     </div>
                     <div class="profile-card">
                         <h3 id="clueB-title">Clue B</h3>
-                        <p id="clueB-text">...</p>
-                        <p><em id="clueB-deduction">...</em></p>
+                        <div class="scramble-area" id="scramble-B"></div>
                     </div>
                     <div class="profile-card">
                         <h3 id="clueC-title">Clue C</h3>
-                        <p id="clueC-text">...</p>
-                        <p><em id="clueC-deduction">...</em></p>
+                        <div class="scramble-area" id="scramble-C"></div>
                     </div>
                 </div>
                 <div class="nav-container" style="margin-top: 15px;">
                     <button class="btn btn-back" onclick="showSection('section-vocab')">⬅ Vocab</button>
-                    <button class="btn btn-red" onclick="showSection('section-solve')">Solve! ➡</button>
+                    <button class="btn btn-green" onclick="showSection('section-interrogation')">Interrogate Witness 🗣️</button>
                 </div>
             </div>
         </div>
@@ -383,9 +264,24 @@
     </div>
 
 
+    <div id="section-interrogation" class="game-section">
+        <h2>INTERROGATION ROOM</h2>
+        <p style="text-align: center;">Three elves saw something. <strong>Only one statement matches your evidence.</strong><br>Select the matching statement to unlock the solution.</p>
+        
+        <div id="witness-container" style="display: flex; flex-direction: column; width: 100%; max-width: 800px;">
+            </div>
+
+        <div class="nav-container">
+            <button class="btn btn-back" onclick="showSection('section-clues-close')">⬅ Evidence</button>
+            <button id="btn-go-solve" class="btn btn-disabled" disabled onclick="showSection('section-solve')">🔒 Solve Case</button>
+        </div>
+        <div class="footer">Created by Panagiotis Domvros, English and Drama Teacher, All Rights Reserved</div>
+    </div>
+
+
     <div id="section-solve" class="game-section">
         <h2>FINAL REPORT</h2>
-        <p>Based on the evidence, who is guilty?</p>
+        <p>Based on the evidence and witness statements, who is guilty?</p>
         <div class="solve-options">
             <div class="solve-btn" onclick="checkAnswer('witch')">
                 <h3>The Witch</h3>
@@ -398,7 +294,7 @@
             </div>
         </div>
         <div class="nav-container">
-            <button class="btn btn-back" onclick="showSection('section-clues-close')">⬅ Review Evidence</button>
+            <button class="btn btn-back" onclick="showSection('section-interrogation')">⬅ Review Witness</button>
         </div>
         <div class="footer">Created by Panagiotis Domvros, English and Drama Teacher, All Rights Reserved</div>
     </div>
@@ -420,61 +316,98 @@
                 </div>
             </div>
         </div>
-        <div class="footer">🎄✍️ Created by Panagiotis Domvros, English and Drama Teacher, All Rights Reserved ✍️🎅d</div>
+        <div class="footer">Created by Panagiotis Domvros, English and Drama Teacher, All Rights Reserved</div>
     </div>
 
 </div>
 
 <script>
-    // --- DYNAMIC GAME DATA ---
+    // --- TIMER LOGIC ---
+    let timeLeft = 900; // 15 minutes
+    setInterval(function() {
+        if(timeLeft > 0) {
+            timeLeft--;
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            document.getElementById('mission-timer').innerText = 
+                (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+        } else {
+            // Optional: Auto-fail logic here
+        }
+    }, 1000);
+
+    // --- GAME DATA ---
     const gameScenarios = {
         witch: {
             culpritId: 'witch',
             culpritName: "It was the Witch!",
             quiz: [
-                { word: "STICKY", opts: ["Like glue or honey", "Dry like sand"], ans: 0 },
-                { word: "MESSY", opts: ["Dirty and untidy", "Clean and organized"], ans: 0 },
-                { word: "POT", opts: ["Used for cooking", "Used for writing"], ans: 0 },
-                { word: "CAULDRON", opts: ["A large cooking pot", "A small teacup"], ans: 0 }
+                { word: "STICKY", opts: ["Like glue", "Dry like sand"], ans: 0 },
+                { word: "MESSY", opts: ["Dirty/Untidy", "Clean"], ans: 0 },
+                { word: "POT", opts: ["For cooking", "For writing"], ans: 0 },
+                { word: "CAULDRON", opts: ["Big pot", "Small cup"], ans: 0 }
             ],
-            clueA: { title: "The Pot", text: "This pot is very heavy. It smells like old green soup.", ded: "Deduction: Who is strong? Who cooks soup?" },
-            clueB: { title: "The Spill", text: "A sticky green liquid (slime) spilled on the rug.", ded: "Deduction: Who is messy? Who hates liquids?" },
-            clueC: { title: "The Hat", text: "A pointy black hat crushed under the table.", ded: "Deduction: Whose hat is this?" },
+            clues: [
+                { title: "The Pot", text: "This heavy pot smells like green soup." },
+                { title: "The Spill", text: "Sticky green slime is on the rug." },
+                { title: "The Hat", text: "A black hat is under the table." }
+            ],
+            witness: [
+                { text: "I slipped on a green puddle near the fireplace.", correct: true }, // MATCHES
+                { text: "I saw lights flickering and breaking.", correct: false },
+                { text: "I heard drumming sounds from the corner.", correct: false }
+            ],
             conclusion: "She was messy with her green soup, and her heavy pot was too heavy for the Ghost. You saved Christmas!"
         },
         skeleton: {
             culpritId: 'skeleton',
             culpritName: "It was the Skeleton!",
             quiz: [
-                { word: "RIB", opts: ["A bone in your chest", "A piece of candy"], ans: 0 },
-                { word: "WRAPPING PAPER", opts: ["Covers gifts", "Covers windows"], ans: 0 },
-                { word: "TIDY", opts: ["Clean and organized", "Messy and dirty"], ans: 0 }
+                { word: "RIB", opts: ["Chest bone", "Candy"], ans: 0 },
+                { word: "WRAPPING", opts: ["Paper cover", "Window"], ans: 0 },
+                { word: "TIDY", opts: ["Clean", "Messy"], ans: 0 }
             ],
-            clueA: { title: "Dry Rib Bone", text: "A small, dry rib bone found near the fireplace.", ded: "Deduction: Who is made only of bones?" },
-            clueB: { title: "Wrapping Paper", text: "The wrapping paper is folded perfectly. It is very tidy.", ded: "Deduction: Who is obsessively clean?" },
-            clueC: { title: "Sheet Music", text: "Notes for spooky drum music hidden under the chair.", ded: "Deduction: Who likes to play music on their ribs?" },
+            clues: [
+                { title: "Dry Bone", text: "A small dry rib bone is near the fire." },
+                { title: "Wrapping", text: "The paper is folded very tidily." },
+                { title: "Music", text: "Notes for bone drums are on the chair." }
+            ],
+            witness: [
+                { text: "I found sheet music for drums on the chair.", correct: true }, // MATCHES
+                { text: "The room was freezing cold and icy.", correct: false },
+                { text: "There was a terrible smell of old soup.", correct: false }
+            ],
             conclusion: "He left a rib bone behind, and the room was too tidy for the Witch! He wanted to play drums on Santa's sleigh."
         },
         ghost: {
             culpritId: 'ghost',
             culpritName: "It was the Ghost!",
             quiz: [
-                { word: "SLIME", opts: ["Wet, sticky liquid", "Hard rock"], ans: 0 },
+                { word: "SLIME", opts: ["Wet liquid", "Hard rock"], ans: 0 },
                 { word: "ECTOPLASM", opts: ["Ghost goo", "Toothpaste"], ans: 0 },
-                { word: "PATCH", opts: ["A small spot", "A whole mountain"], ans: 0 },
-                { word: "RUG", opts: ["Carpet on floor", "Curtain on window"], ans: 0 },
-                { word: "SMASHED", opts: ["Broken into pieces", "Fixed perfectly"], ans: 0 },
-                { word: "DEDUCTION", opts: ["Using clues to think", "Closing your eyes"], ans: 0 },
-                { word: "TRANSPARENT", opts: ["You can see through it", "It is solid black"], ans: 0 }
+                { word: "PATCH", opts: ["Small spot", "Mountain"], ans: 0 },
+                { word: "RUG", opts: ["Floor carpet", "Curtain"], ans: 0 },
+                { word: "SMASHED", opts: ["Broken", "Fixed"], ans: 0 },
+                { word: "DEDUCTION", opts: ["Logic", "Guessing"], ans: 0 },
+                { word: "TRANSPARENT", opts: ["See-through", "Solid"], ans: 0 }
             ],
-            clueA: { title: "Smashed Lights", text: "The bright Christmas tree lights have been smashed.", ded: "Deduction: Who hates bright lights?" },
-            clueB: { title: "Freezing Spot", text: "There is a freezing cold, icy patch on the rug.", ded: "Deduction: Who leaves cold spots and has no body?" },
-            clueC: { title: "Ectoplasm", text: "A faint, transparent slime on the wall.", ded: "Deduction: Who is transparent and slimy?" },
+            clues: [
+                { title: "Broken Lights", text: "The tree lights have been smashed." },
+                { title: "Freezing", text: "There is an icy patch on the rug." },
+                { title: "Ectoplasm", text: "Transparent slime is on the wall." }
+            ],
+            witness: [
+                { text: "It suddenly became very cold and icy.", correct: true }, // MATCHES
+                { text: "I saw someone folding paper neatly.", correct: false },
+                { text: "I saw a heavy iron pot on the floor.", correct: false }
+            ],
             conclusion: "He smashed the bright lights and left freezing cold spots everywhere because the festive cheer was too bright!"
         }
     };
 
     let currentScenario = null;
+    let quizScore = 0;
+    let totalQuiz = 0;
 
     function initGame() {
         const keys = Object.keys(gameScenarios);
@@ -488,68 +421,135 @@
         document.getElementById('img-evidence').src = 'clues_' + currentScenario.culpritId + '.png';
         document.getElementById('img-final').src = 'final_' + currentScenario.culpritId + '.png';
 
-        // 2. BUILD DYNAMIC QUIZ
+        // 2. BUILD QUIZ
         const quizContainer = document.getElementById('quiz-container');
         quizContainer.innerHTML = ''; 
+        totalQuiz = currentScenario.quiz.length;
+        quizScore = 0;
         
         currentScenario.quiz.forEach((qData, index) => {
             const card = createQuizCard(qData, index);
             quizContainer.appendChild(card);
         });
 
-        // 3. SWAP EVIDENCE TEXT
-        document.getElementById('clueA-title').innerText = currentScenario.clueA.title;
-        document.getElementById('clueA-text').innerText = currentScenario.clueA.text;
-        document.getElementById('clueA-deduction').innerText = currentScenario.clueA.ded;
-        document.getElementById('clueB-title').innerText = currentScenario.clueB.title;
-        document.getElementById('clueB-text').innerText = currentScenario.clueB.text;
-        document.getElementById('clueB-deduction').innerText = currentScenario.clueB.ded;
-        document.getElementById('clueC-title').innerText = currentScenario.clueC.title;
-        document.getElementById('clueC-text').innerText = currentScenario.clueC.text;
-        document.getElementById('clueC-deduction').innerText = currentScenario.clueC.ded;
+        // 3. BUILD DECRYPTOR
+        setupScramble('scramble-A', currentScenario.clues[0].text);
+        setupScramble('scramble-B', currentScenario.clues[1].text);
+        setupScramble('scramble-C', currentScenario.clues[2].text);
+        document.getElementById('clueA-title').innerText = currentScenario.clues[0].title;
+        document.getElementById('clueB-title').innerText = currentScenario.clues[1].title;
+        document.getElementById('clueC-title').innerText = currentScenario.clues[2].title;
+
+        // 4. BUILD INTERROGATION ROOM
+        const witnessContainer = document.getElementById('witness-container');
+        witnessContainer.innerHTML = '';
+        // Shuffle witnesses
+        const witnesses = [...currentScenario.witness].sort(() => Math.random() - 0.5);
+        
+        witnesses.forEach((w, index) => {
+            const div = document.createElement('div');
+            div.className = 'witness-card';
+            div.innerHTML = `<span class="elf-avatar">🧝</span> <strong>Elf Witness #${index+1}:</strong> "${w.text}"`;
+            div.onclick = function() { checkWitness(this, w.correct); };
+            witnessContainer.appendChild(div);
+        });
     }
 
+    // --- QUIZ LOGIC ---
     function createQuizCard(data, index) {
         const div = document.createElement('div');
         div.className = 'quiz-card';
         div.innerHTML = `<div class="quiz-word">${data.word}</div>`;
-
         const optionsDiv = document.createElement('div');
         optionsDiv.className = 'quiz-options';
-
         const btn1 = document.createElement('button');
         const btn2 = document.createElement('button');
-        btn1.className = 'quiz-btn';
-        btn2.className = 'quiz-btn';
+        btn1.className = 'quiz-btn'; btn2.className = 'quiz-btn';
 
         if (Math.random() > 0.5) {
-            btn1.innerText = data.opts[1];
-            btn2.innerText = data.opts[0]; 
+            btn1.innerText = data.opts[1]; btn2.innerText = data.opts[0]; 
             btn1.onclick = function() { checkVocab(this, false); };
             btn2.onclick = function() { checkVocab(this, true); };
         } else {
-            btn1.innerText = data.opts[0]; 
-            btn2.innerText = data.opts[1];
+            btn1.innerText = data.opts[0]; btn2.innerText = data.opts[1];
             btn1.onclick = function() { checkVocab(this, true); };
             btn2.onclick = function() { checkVocab(this, false); };
         }
-
-        optionsDiv.appendChild(btn1);
-        optionsDiv.appendChild(btn2);
+        optionsDiv.appendChild(btn1); optionsDiv.appendChild(btn2);
         div.appendChild(optionsDiv);
         return div;
     }
 
     function checkVocab(btn, isCorrect) {
+        if(btn.classList.contains('correct') || btn.classList.contains('wrong')) return; 
         const parent = btn.parentElement;
         const buttons = parent.getElementsByClassName('quiz-btn');
-        for(let b of buttons) {
-            b.classList.remove('correct', 'wrong');
-        }
+        for(let b of buttons) b.disabled = true;
+
         if (isCorrect) {
             btn.classList.add('correct');
+            quizScore++;
         } else {
             btn.classList.add('wrong');
+        }
+        if(quizScore === totalQuiz) {
+            const goBtn = document.getElementById('btn-go-lab');
+            goBtn.classList.remove('btn-disabled');
+            goBtn.classList.add('btn-green');
+            goBtn.disabled = false;
+            goBtn.innerText = "🔓 Access Granted";
+        }
+    }
+
+    // --- DECRYPTOR LOGIC ---
+    function setupScramble(elementId, sentence) {
+        const container = document.getElementById(elementId);
+        container.innerHTML = ""; 
+        const words = sentence.split(" ");
+        const shuffled = [...words].sort(() => Math.random() - 0.5);
+        const bankDiv = document.createElement('div'); bankDiv.className = 'word-bank';
+        const answerDiv = document.createElement('div'); answerDiv.className = 'answer-box';
+
+        shuffled.forEach(word => {
+            const span = document.createElement('span');
+            span.className = 'scramble-word';
+            span.innerText = word;
+            span.onclick = function() {
+                if(this.parentElement === bankDiv) answerDiv.appendChild(this);
+                else bankDiv.appendChild(this);
+                checkSentence(answerDiv, sentence, container);
+            };
+            bankDiv.appendChild(span);
+        });
+        container.appendChild(bankDiv); container.appendChild(answerDiv);
+    }
+
+    function checkSentence(answerDiv, originalSentence, container) {
+        const currentWords = Array.from(answerDiv.children).map(span => span.innerText);
+        if (currentWords.join(" ") === originalSentence) {
+            container.innerHTML = `<div class='decrypted-text'>evidence decrypted:<br>"${originalSentence}"</div>`;
+        }
+    }
+
+    // --- INTERROGATION LOGIC ---
+    function checkWitness(card, isCorrect) {
+        // Reset siblings
+        const siblings = document.querySelectorAll('.witness-card');
+        siblings.forEach(s => s.classList.remove('selected', 'correct', 'wrong'));
+        
+        card.classList.add('selected');
+
+        if(isCorrect) {
+            card.classList.add('correct');
+            const btn = document.getElementById('btn-go-solve');
+            btn.classList.remove('btn-disabled');
+            btn.classList.add('btn-red');
+            btn.disabled = false;
+            btn.innerText = "🔓 Solve Case";
+        } else {
+            card.classList.add('wrong');
+            alert("This statement contradicts the evidence! Try again.");
+            timeLeft -= 60; // 1 min penalty
         }
     }
 
@@ -561,22 +561,17 @@
             document.getElementById('final-conclusion').innerText = currentScenario.conclusion;
             showSection('section-final');
         } else {
-            alert("That doesn't match the evidence! Look closer.");
+            alert("Incorrect! Review the decrypted evidence.");
+            timeLeft -= 30; 
         }
     }
 
     function showSection(sectionId) {
         const sections = document.querySelectorAll('.game-section');
         const logo = document.getElementById('app-logo');
-
-        sections.forEach(section => {
-            section.style.display = 'none';
-        });
-        
-        // DISPLAY LOGIC: Use 'flex' for layout centering
+        sections.forEach(section => { section.style.display = 'none'; });
         document.getElementById(sectionId).style.display = 'flex';
-
-        // LOGO LOGIC: Hide on Vocab section, Show on others
+        
         if (sectionId === 'section-vocab') {
             logo.style.display = 'none';
         } else {
@@ -586,5 +581,4 @@
 </script>
 
 </body>
-
 </html>
